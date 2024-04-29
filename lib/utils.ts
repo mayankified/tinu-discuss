@@ -40,6 +40,6 @@ export const formatNumber = (num: number): string => {
   } else if (num >= 1000) {
       return (num / 1000).toFixed(1) + 'K';
   } else {
-      return num.toString();
+      return String(num);
   }
 };

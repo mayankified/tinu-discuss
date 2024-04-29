@@ -9,39 +9,9 @@ import { getQuestion } from "@/lib/actions/question.action";
 import Link from "next/link";
 import React from "react";
 
-const questions = [
-  {
-    _id: "1",
-    title: "How to use arrays in JavaScript?",
-    author: { _id: "1", name: "Alice", img: "alice.jpg" },
-    createdAt: new Date("2024-04-26"),
-    upvotes: 10,
-    views: 1232323,
-    tags: [
-      { _id: "1", name: "JavaScript" },
-      { _id: "2", name: "Array" },
-    ],
-    answers: [],
-  },
-  {
-    _id: "2",
-    title: "What is the best state management solution for React?",
-    author: { _id: "2", name: "Bob", img: "bob.jpg" },
-    createdAt: new Date("2024-04-25"),
-    upvotes: 5,
-    views: 50,
-    tags: [
-      { _id: "3", name: "React" },
-      { _id: "4", name: "State Management" },
-    ],
-    answers: [],
-  },
-];
 
 const Home = async () => {
-  const Questions = await getQuestion();
-
-  console.log(Questions);
+  const Result = await getQuestion({});
   return (
     <>
       <div className="w-full flex flex-col-reverse sm:flex-row justify-between gap-4">
@@ -68,8 +38,8 @@ const Home = async () => {
       </div>
       <Homefilters />
       <div className="mt-10 flex flex-col w-full gap-6">
-        {questions.length > 0 ? (
-          questions.map((item) => (
+        {Result.questions.length > 0 ? (
+          Result.questions.map((item) => (
             <QuestionCard
               key={item._id}
               _id={item._id}

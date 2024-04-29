@@ -1,5 +1,5 @@
+import { IUser } from "@/database/user.model";
 import { Schema } from "mongoose";
-import { IUser } from "@/mongodb";
 export interface CreateAnswerParams {
   content: string;
   author: string; // User ID

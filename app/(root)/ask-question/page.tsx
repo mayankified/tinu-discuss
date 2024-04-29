@@ -5,14 +5,14 @@ import { redirect } from "next/navigation";
 import React from "react";
 
 const Askque = async () => {
-  // const userId = auth();
-  const userId = 'CL123';
+  const userIdd = auth();
+  const userId = 'C12345';
+
 
   if (!userId) redirect("/sign-in");
 
   const User = await getUserbyId({ userId });
 
-  console.log(User)
   return (
     <div>
       <h1 className="text-dark100_light900 h1-bold">Ask a Question</h1>
