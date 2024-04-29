@@ -49,7 +49,7 @@ const Rightsidebar = () => {
             PopTags.map((tag)=>(
                 <RenderTag
                 key={tag._id}
-                _id={tag._id}
+                _id={String(tag._id)}
                 name={tag.name}
                 totalQue={tag.totalQue}
                 showCount
