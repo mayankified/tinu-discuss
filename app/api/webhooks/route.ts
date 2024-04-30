@@ -58,6 +58,7 @@ export async function POST(req: Request) {
     const { id, email_addresses, username, first_name, last_name, image_url } =
       evt.data;
 
+    console.log(evt.data);
     //create user in mongodb
 
     const MongoUser = await createUser({
@@ -97,11 +98,11 @@ export async function POST(req: Request) {
     });
   }
 
-  if(eventType==='user.deleted'){
-    const {id} =evt.data;
-    const deletedUser= await deleteUser({
-      clerkId:id!
-    })
+  if (eventType === "user.deleted") {
+    const { id } = evt.data;
+    const deletedUser = await deleteUser({
+      clerkId: id!,
+    });
     return NextResponse.json({
       message: "OK",
       user: deletedUser,
