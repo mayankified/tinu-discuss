@@ -5,12 +5,10 @@ import { redirect } from "next/navigation";
 import React from "react";
 
 const Askque = async () => {
-  const {userId} = auth();
-
-  console.log(userId)
+  const { userId } = auth();
 
   if (!userId) redirect("/sign-in");
-
+  // console.log(userId);
   const User = await getUserbyId({ userId });
 
   return (

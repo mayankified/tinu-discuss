@@ -51,16 +51,15 @@ export async function POST(req: Request) {
   }
 
   // Get the ID and type
-  const { id } = evt.data;
   const eventType = evt.type;
 
-  console.log(evt);
+  // console.log(evt);
 
   if (eventType === "user.created") {
     const { id, email_addresses, username, first_name, last_name, image_url } =
       evt.data;
 
-    console.log(evt.data);
+    // console.log(evt.data);
     //create user in mongodb
 
     const MongoUser = await createUser({
