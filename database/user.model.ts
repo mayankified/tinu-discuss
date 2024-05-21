@@ -13,7 +13,7 @@ export interface IUser extends Document {
     bio?: string;
     reputation?: number;
     saved: Schema.Types.ObjectId[];
-    joinedAt: Date;
+    createdAt: Date;
 }
 
 // Define the Mongoose schema for the main entity

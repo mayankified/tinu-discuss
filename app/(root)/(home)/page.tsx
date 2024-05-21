@@ -2,16 +2,21 @@ import Homefilters from "@/components/home/Homefilters";
 import QuestionCard from "@/components/shared/Cards/QuestionCard";
 import Filters from "@/components/shared/Filters";
 import NoResult from "@/components/shared/NoResult";
+import Pagination from "@/components/shared/Pagination";
 import LocalSearch from "@/components/shared/Search/LocalSearch";
 import { Button } from "@/components/ui/button";
 import { HomePageFilters } from "@/constants/filters";
 import { getQuestion } from "@/lib/actions/question.action";
+import { SearchParamsProps } from "@/types";
 import Link from "next/link";
 import React from "react";
 
-
-const Home = async () => {
-  const Result = await getQuestion({});
+const Home = async ({ searchParams }: SearchParamsProps) => {
+  const Result = await getQuestion({
+    searchQuery: searchParams.q,
+    filter: searchParams.filter,
+    page: searchParams.page ? +searchParams.page : 1,
+  });
   return (
     <>
       <div className="w-full flex flex-col-reverse sm:flex-row justify-between gap-4">
@@ -47,7 +52,7 @@ const Home = async () => {
               tags={item.tags}
               author={item.author}
               answers={item.answers}
-              upvotes={item.upvotes}
+              upvotes={item.upvotes?.length}
               createdAt={item.createdAt}
               views={item.views}
             />
@@ -60,6 +65,12 @@ const Home = async () => {
             linkTitle="Ask a Question"
           />
         )}
+      </div>
+      <div className="mt-10">
+        <Pagination
+          pageNumber={searchParams?.page ? +searchParams.page : 1}
+          isNext={Result.isNext}
+        />
       </div>
     </>
   );

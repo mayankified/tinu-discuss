@@ -8,7 +8,6 @@ const Askque = async () => {
   const { userId } = auth();
 
   if (!userId) redirect("/sign-in");
-  // console.log(userId);
   const User = await getUserbyId({ userId });
 
   return (
