@@ -39,6 +39,7 @@ const Home = async ({ searchParams }: SearchParamsProps) => {
         {result.questions.length > 0 ? (
           result.questions.map((item: any) => (
             <QuestionCard
+              clerkId={userId || ""}
               key={item._id}
               _id={item._id}
               title={item.title}
