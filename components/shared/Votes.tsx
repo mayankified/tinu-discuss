@@ -7,6 +7,7 @@ import { formatNumber } from "@/lib/utils";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect } from "react";
+import { toast } from "../ui/use-toast";
 interface VotesProps {
   type: string;
   itemId: string;
@@ -38,7 +39,10 @@ const Votes = ({
 
   const handleVote = async (votetype: string) => {
     if (!userId) {
-      return;
+      return toast({
+        title: "Please Log in",
+        description: "You must be logged in to perform this operation",
+      });
     }
     if (votetype === "up") {
       if (type === "question") {
@@ -58,7 +62,10 @@ const Votes = ({
           path: pathname,
         });
       }
-      return;
+      return toast({
+        title: `Upvote ${!hasupVoted ? "Successful" : "Removed"}`,
+        variant: !hasupVoted ? "default" : "destructive",
+      });
     }
     if (votetype === "down") {
       if (type === "question") {
@@ -78,7 +85,10 @@ const Votes = ({
           path: pathname,
         });
       }
-      return;
+      return toast({
+        title: `Downvote ${!hasdownVoted ? "Successful" : "Removed"}`,
+        variant: !hasdownVoted ? "default" : "destructive",
+      });
     }
   };
   const handleSave = async () => {
@@ -86,6 +96,10 @@ const Votes = ({
       userId: JSON.parse(userId),
       questionId: JSON.parse(itemId),
       path: pathname,
+    });
+    return toast({
+      title: `Save ${!hasSaved ? "Successful" : "Removed"}`,
+      variant: !hasSaved ? "default" : "destructive",
     });
   };
 

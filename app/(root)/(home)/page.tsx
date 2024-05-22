@@ -22,7 +22,7 @@ const Home = async ({ searchParams }: SearchParamsProps) => {
       <div className="w-full flex flex-col-reverse sm:flex-row justify-between gap-4">
         <h1 className="text-dark100_light900 h1-bold">All Questions</h1>
         <Link href="/ask-question" className="flex justify-end max-sm:w-full">
-          <Button className="primary-gradient min-h-[46px] px-4 py-3 text-light-900">
+          <Button className="primary-gradient font-semibold drop-shadow-xl min-h-[46px] px-4 py-3 text-light-900">
             Ask a Question
           </Button>
         </Link>
@@ -55,6 +55,7 @@ const Home = async ({ searchParams }: SearchParamsProps) => {
               upvotes={item.upvotes?.length}
               createdAt={item.createdAt}
               views={item.views}
+              // clerkId={}
             />
           ))
         ) : (

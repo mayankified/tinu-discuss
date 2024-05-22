@@ -24,7 +24,7 @@ const Theme = () => {
               alt="sun"
               width={20}
               height={20}
-              className="active-theme  icon-filter"
+              className="active-theme "
             />
           ) : (
             <Image
@@ -36,7 +36,7 @@ const Theme = () => {
             />
           )}
         </MenubarTrigger>
-        <MenubarContent className="absolute right-2 mt-3 min-w-[120px] rounded border py-2 dark:border-dark-400 dark:bg-dark-300">
+        <MenubarContent className="absolute right-2 mt-3 min-w-[120px] rounded border py-2 bg-light-900 dark:border-dark-400 dark:bg-dark-300">
           {themes.map((item) => (
             <MenubarItem
               key={item.value}
@@ -49,7 +49,7 @@ const Theme = () => {
                     localStorage.removeItem('theme')
                 }
               }}
-              className="flex items-center gap-4 px-2.5 py-2 dark:focus:bg-dark-400"
+              className="flex items-center gap-4 px-2.5 py-2 dark:focus:bg-dark-400 cursor-pointer focus:bg-light-800"
             >
               <Image
                 src={item.icon}

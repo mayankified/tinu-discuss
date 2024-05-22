@@ -76,6 +76,8 @@ const QuestionCard = ({
           //@ts-ignore
           href={`/profile/${author.clerkId}`}
         />
+        <div className="flex items-center gap-3 max-sm:flex-wrap max-sm:justify-start">
+
         <Shreya
           imgUrl="/assets/icons/like.svg"
           alt="likes"
@@ -96,7 +98,8 @@ const QuestionCard = ({
           value={formatNumber(views)}
           title="Views"
           textStyles="small-medium text-dark400_light800"
-        />
+          />
+          </div>
       </div>
     </div>
   );

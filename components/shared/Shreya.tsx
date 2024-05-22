@@ -25,9 +25,9 @@ const Shreya = ({
       <Image
         src={imgUrl}
         alt={alt}
-        width={16}
-        height={16}
-        className={`object-contain ${href ? "rounded-full" : ""}`}
+        width={20}
+        height={20}
+        className={`object-cover mr-1 ${href ? "rounded-full" : ""}`}
       />
       <p className={`flex items-center gap-1 ${textStyles}`}>
         {value}

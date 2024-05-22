@@ -13,8 +13,8 @@ const Navbar = () => {
         <Image
           src="/assets/images/site-logo.svg"
           alt="TinuDiscuss"
-          width={23}
-          height={23}
+          width={35}
+          height={35}
         />
         <p className="h2-bold font-spaceGrotesk text-dark-100 dark:text-light-900 max-xs:hidden">
           Tinu <span className="text-primary-500">Discuss</span>
@@ -33,7 +33,7 @@ const Navbar = () => {
                 avatarBox: "h-10 w-10",
               },
               variables: {
-                colorPrimary: "#ff7000",
+                colorPrimary: "#c82678",
               },
             }}
           />

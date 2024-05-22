@@ -8,12 +8,12 @@ import { SearchParamsProps } from "@/types";
 import React from "react";
 
 const page = async ({ searchParams }: SearchParamsProps) => {
-  const searchParam = searchParams || { q: '', filter: '', page: '1' };
+  const searchParam = searchParams || { q: "", filter: "", page: "1" };
 
   const result = await getallUser({
-    searchQuery: searchParam.q, 
+    searchQuery: searchParam.q,
     filter: searchParam.filter,
-    page: +searchParam.page || 1, // No need for conditional check here
+    page: searchParam.page ? +searchParam.page : 1,
   });
 
   return (

@@ -31,7 +31,7 @@ const page = async ({ params, searchParams }: URLProps) => {
             <h2 className="h2-bold text-dark100_light900">
               {userInfo.user.name}
             </h2>
-            <h2 className="h3-bold  text-primary-500">
+            <h2 className="h3-bold primary-text-gradient">
               @ {userInfo.user.username}
             </h2>
             <div className="mt-5 gap-5 flex flex-wrap items-center justify-start ">
@@ -64,7 +64,7 @@ const page = async ({ params, searchParams }: URLProps) => {
           <SignedIn>
             {userId === userInfo.user.clerkId && (
               <Link href={"/profile/edit"}>
-                <Button className="paragraph-medium btn-secondary text-dark300_light900 min-h-[46px] min-w-[175px] px-4 py-3">
+                <Button className="paragraph-medium btn-secondary text-light-900 primary-gradient font-semibold drop-shadow-xl min-h-[46px] min-w-[175px] px-4 py-3">
                   Edit Profile
                 </Button>
               </Link>
@@ -81,10 +81,10 @@ const page = async ({ params, searchParams }: URLProps) => {
       <div className="mt-10 flex gap-10">
         <Tabs defaultValue="top-posts" className="w-[400px] ">
           <TabsList className="background-light800_dark400 min-h-[42px] p-1">
-            <TabsTrigger className="tab" value="top-posts">
+            <TabsTrigger className="tab data-[state=active]:bg-primary-500 data-[state=active]:text-primary-100" value="top-posts">
               Top Posts
             </TabsTrigger>
-            <TabsTrigger className="tab" value="answers">
+            <TabsTrigger className="tab data-[state=active]:bg-primary-500 data-[state=active]:text-primary-100" value="answers">
               Answers
             </TabsTrigger>
           </TabsList>

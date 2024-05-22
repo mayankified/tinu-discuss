@@ -44,7 +44,7 @@ export async function CreateQue(params: CreateQuestionParams) {
       tagDoc.push(existingTag._id);
     }
     await Questions.findByIdAndUpdate(question._id, {
-      $push: { tag: { $each: tagDoc } },
+      $push: { tags: { $each: tagDoc } },
     });
 
     await Interaction.create({

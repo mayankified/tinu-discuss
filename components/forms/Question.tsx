@@ -34,9 +34,15 @@ interface Props {
 const Question = ({ mongoUserId, type, questionDetails }: Props) => {
   const [submitting, setsubmitting] = useState(false);
 
+  console.log({questionDetails})
+
   const ParsedQueDetails = questionDetails ? JSON.parse(questionDetails):{}
 
+  console.log({ParsedQueDetails})
+
   const GroupTags = ParsedQueDetails.tags?.map((tag: any) => tag.name)||[];
+
+  console.log({GroupTags})
 
   const editorRef = useRef(null);
   const form = useForm<z.infer<typeof questionSchema>>({

@@ -33,10 +33,19 @@ body {
     @apply max-w-full prose dark:prose-p:text-light-700 dark:prose;
   }
   .primary-gradient {
-    background: linear-gradient(129deg, #ff7000 0%, #e2995f 100%);
-
-    /* background: #09bdc6;
-    background: linear-gradient(135deg, #09bdc6, #51586e); */
+    /* background: linear-gradient(129deg, #ff7000 0%, #e2995f 100%); */
+    /*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=c06ac9&c2=952433&gt=l&gd=dcr
+*/
+    /* background: #C06AC9;
+background: linear-gradient(270deg, #C06AC9, #952433); */
+    background: rgb(192, 106, 201);
+    background: linear-gradient(
+      100deg,
+      rgba(192, 106, 201, 1) 0%,
+      rgba(203, 11, 88, 1) 100%
+    );
   }
   .dark-gradient {
     background: linear-gradient(
@@ -55,8 +64,9 @@ body {
 }
 
 .active-theme {
-  filter: invert(53%) sepia(98%) saturate(3332%) hue-rotate(0deg)
-    brightness(104%) contrast(106%) !important;
+  /* filter: invert(53%) sepia(98%) saturate(3332%) hue-rotate(0deg)
+    brightness(104%) contrast(106%) !important; */
+    filter: brightness(0) saturate(100%) invert(74%) sepia(40%) saturate(4429%) hue-rotate(256deg) brightness(81%) contrast(83%);
 }
 
 .light-gradient {
@@ -68,8 +78,13 @@ body {
 }
 
 .primary-text-gradient {
-  background: linear-gradient(129deg, #ff7000 0%, #e2995f 100%);
-/*   
+  background: linear-gradient(
+    100deg,
+    rgba(192, 106, 201, 1) 0%,
+    rgba(203, 11, 88, 1) 100%
+  );
+  /* background: linear-gradient(129deg, #ff7000 0%, #e2995f 100%); */
+  /*   
   background: #09bdc6;
   background: linear-gradient(135deg, #09bdc6, #51586e); */
   background-clip: text;
@@ -112,7 +127,7 @@ code {
   -webkit-hyphens: auto;
   hyphens: auto;
   padding: 2px;
-  color: #ff7000 !important;
+  color: #c163c0 !important;
 }
 
 .markdown pre {
@@ -130,7 +145,11 @@ code {
 
 /* Clerk */
 .cl-internal-b3fm6y {
-  background: linear-gradient(129deg, #ff7000 0%, #e2995f 100%);
+  background: linear-gradient(
+    100deg,
+    rgba(192, 106, 201, 1) 0%,
+    rgba(203, 11, 88, 1) 100%
+  );
 }
 
 .hash-span {
@@ -150,6 +169,7 @@ code {
   scrollbar-width: none; /* Firefox */
 }
 
-.icon-filter{
-  filter: invert(61%) sepia(75%) saturate(7383%) hue-rotate(352deg) brightness(98%) contrast(106%);
+.icon-filter {
+  filter: invert(61%) sepia(75%) saturate(7383%) hue-rotate(352deg)
+    brightness(98%) contrast(106%);
 }

@@ -188,7 +188,7 @@ export async function deleteAnswer(params: DeleteAnswerParams) {
     await Interaction.deleteMany({ answer: answerId });
     await Questions.updateMany(
       {
-        answers: answer.question,
+        answers: answerId,
       },
       { $pull: { answers: answerId } }
     );

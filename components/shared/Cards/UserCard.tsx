@@ -33,7 +33,7 @@ const UserCard = async ({ user }: Props) => {
           <h3 className="h3-bold line-clamp-1 text-dark500_light500">
             {user.name}
           </h3>
-          {/* <p>@ {user.username}</p> */}
+          <p className="primary-text-gradient font-semibold">@ {user.username}</p>
         </div>
         <div className="mt-5">
           {userTag.length > 0 ? (
