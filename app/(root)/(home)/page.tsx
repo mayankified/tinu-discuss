@@ -8,10 +8,12 @@ import { Button } from "@/components/ui/button";
 import { HomePageFilters } from "@/constants/filters";
 import { getQuestion } from "@/lib/actions/question.action";
 import { SearchParamsProps } from "@/types";
+import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
 import React from "react";
 
 const Home = async ({ searchParams }: SearchParamsProps) => {
+  const { userId } = auth();
   const Result = await getQuestion({
     searchQuery: searchParams.q,
     filter: searchParams.filter,
@@ -46,6 +48,7 @@ const Home = async ({ searchParams }: SearchParamsProps) => {
         {Result.questions.length > 0 ? (
           Result.questions.map((item) => (
             <QuestionCard
+              clerkId={userId ||''}
               key={item._id}
               _id={item._id}
               title={item.title}
