@@ -5,6 +5,7 @@ import LocalSearch from "@/components/shared/Search/LocalSearch";
 import { QuestionFilters } from "@/constants/filters";
 import { getQuesbyTags } from "@/lib/actions/tag.action";
 import { URLProps } from "@/types";
+import { auth } from "@clerk/nextjs/server";
 import React from "react";
 
 const page = async ({ params, searchParams }: URLProps) => {
@@ -13,9 +14,13 @@ const page = async ({ params, searchParams }: URLProps) => {
     page: 1,
     searchQuery: searchParams.q,
   });
+  const { userId } = auth();
+
   return (
     <>
-      <h1 className="text-dark100_light900 capitalize h1-bold">{result.tagTilte}</h1>
+      <h1 className="text-dark100_light900 capitalize h1-bold">
+        {result.tagTilte}
+      </h1>
       <div className="mt-11 w-full">
         <LocalSearch
           route="/"
@@ -29,6 +34,7 @@ const page = async ({ params, searchParams }: URLProps) => {
         {result.questions.length > 0 ? (
           result.questions.map((item: any) => (
             <QuestionCard
+              clerkId={userId || ""}
               key={item._id}
               _id={item._id}
               title={item.title}
