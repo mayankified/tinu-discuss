@@ -37,7 +37,7 @@ const page = async ({ params, searchParams }: URLProps) => {
             <h2 className="h3-bold primary-text-gradient">
               @ {userInfo.user.username}
             </h2>
-            <div className="mt-5 gap-5 flex flex-wrap items-center justify-start ">
+            <div className="mt-5 gap-2 flex w-full flex-wrap items-center justify-start ">
               {userInfo.user.portfolioLink && (
                 <ProfileLink
                   imgUrl="/assets/icons/link.svg"
@@ -57,7 +57,7 @@ const page = async ({ params, searchParams }: URLProps) => {
               />
             </div>
             {userInfo.user.bio && (
-              <p className="paragraph-regular text-dark400_light700 mt-2">
+              <p className="paragraph-regular text-dark400_light700 mt-4">
                 {userInfo.user.bio}
               </p>
             )}
@@ -82,7 +82,7 @@ const page = async ({ params, searchParams }: URLProps) => {
         totalQue={userInfo.totalQue}
       />
       <div className="mt-10 flex gap-10">
-        <Tabs defaultValue="top-posts" className="w-[400px] ">
+        <Tabs defaultValue="top-posts" className=" ">
           <TabsList className="background-light800_dark400 min-h-[42px] p-1">
             <TabsTrigger
               className="tab data-[state=active]:bg-primary-500 data-[state=active]:text-primary-100"

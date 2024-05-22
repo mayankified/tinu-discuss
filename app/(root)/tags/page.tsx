@@ -33,7 +33,7 @@ const page = async ({ searchParams }: SearchParamsProps) => {
           otherClasses="min-h-[56px] sm:min-w-[170px]"
         />
       </div>
-      <section className="mt-12 flex flex-wrap gap-4">
+      <section className="mt-12 flex justify-center flex-wrap gap-4">
         {result.tags.length > 0 ? (
           result.tags.map((tag) => (
             <Link
@@ -41,7 +41,7 @@ const page = async ({ searchParams }: SearchParamsProps) => {
               className="shadow-light-100 dark:shadow-none"
               href={`/tags/${tag._id}`}
             >
-              <article className=" background-light900_dark200 light-border flex w-full flex-col items-center justify-center rounded-2xl sm:w-[260px] border py-10 px-8">
+              <article className=" background-light900_dark200 light-border flex flex-col items-center justify-center rounded-2xl w-[260px] border py-10 px-8">
                 <div className="background-light800_dark400   w-fit rounded-sm px-5 py-1.5">
                   <p className="paragraph-semibold text-dark300_light900">
                     {tag.name}
