@@ -4,6 +4,7 @@ import ParseHTML from "@/components/shared/ParseHTML";
 import RenderTag from "@/components/shared/RenderTag";
 import Shreya from "@/components/shared/Shreya";
 import Votes from "@/components/shared/Votes";
+import { Button } from "@/components/ui/button";
 import { getQuestionbyId } from "@/lib/actions/question.action";
 import { getUserbyId } from "@/lib/actions/user.action";
 import { formatNumber, getTimestamps } from "@/lib/utils";
@@ -13,13 +14,13 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import React from "react";
 
-const page = async ({ params,searchParams }: any) => {
+const page = async ({ params, searchParams }: any) => {
   const result = await getQuestionbyId({ questionId: params.id });
 
   const { userId } = auth();
 
-  if (!userId) redirect("/sign-in");
-  const User = await getUserbyId({ userId });
+  // if (!userId) redirect("/sign-in");
+  const User = (await getUserbyId({ userId })) || {};
   return (
     <>
       <div className=" flex justify-start flex-col w-full">
@@ -39,7 +40,7 @@ const page = async ({ params,searchParams }: any) => {
               {result.author.name}
             </p>
             <p className="text-primary-500 paragraph-semibold">
-             @ {result.author.username}
+              @ {result.author.username}
             </p>
           </Link>
           <div className="flex justify-end">
@@ -51,7 +52,7 @@ const page = async ({ params,searchParams }: any) => {
               hasupVoted={result.upvotes.includes(User._id)}
               downvotes={result.downvotes.length}
               hasdownVoted={result.downvotes.includes(User._id)}
-              hasSaved={User?.saved.includes(result._id)}
+              hasSaved={User?.saved?.includes(result._id)}
             />
           </div>
         </div>
@@ -95,17 +96,25 @@ const page = async ({ params,searchParams }: any) => {
       </div>
 
       <AllAnswers
-        userId={User._id }
+        userId={User._id}
         questionId={result._id}
         totalAns={result.answers.length}
         page={searchParams?.page}
         filter={searchParams?.filter}
       />
-      <Answer
-        authorId={JSON.stringify(User._id)}
-        question={result.content}
-        questionId={JSON.stringify(result._id)}
-      />
+      {userId ? (
+        <Answer
+          authorId={JSON.stringify(User._id)}
+          question={result.content}
+          questionId={JSON.stringify(result._id)}
+        />
+      ) : (
+        <Link href={"/sign-in"}>
+          <Button className="paragraph-medium btn-secondary text-light-900 primary-gradient font-semibold drop-shadow-xl min-h-[46px] min-w-[175px] px-4 py-3">
+            Kindly Sign-in to Comment
+          </Button>
+        </Link>
+      )}
     </>
   );
 };

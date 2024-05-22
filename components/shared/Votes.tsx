@@ -92,6 +92,12 @@ const Votes = ({
     }
   };
   const handleSave = async () => {
+    if (!userId) {
+      return toast({
+        title: "Please Log in",
+        description: "You must be logged in to perform this operation",
+      });
+    }
     await saveQue({
       userId: JSON.parse(userId),
       questionId: JSON.parse(itemId),

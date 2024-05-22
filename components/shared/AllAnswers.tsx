@@ -33,11 +33,11 @@ const AllAnswers = async ({
         <h3 className="primary-text-gradient">{totalAns} Answers</h3>
         <Filters filters={AnswerFilters} />
       </div>
-      <div className="mt-10 flex flex-col w-full gap-6">
+      <div className="mt-10 flex flex-col w-full gap-2">
         {Result.answer.map((ans) => (
-          <article key={ans._id} className="py-10 light-border border-b ">
+          <article key={ans._id} className="py-4 light-border border-b ">
             <div className="flex items-center justify-between">
-              <div className="mb-8 flex flex-col-reverse justify-between gap-5 sm:flex-row sm:gap-2 sm:items-center w-full">
+              <div className="mb- flex flex-col-reverse justify-between gap-5 sm:flex-row sm:gap-2 sm:items-center w-full">
                 <Link
                   className="flex gap-1 flex-1 items-start sm:items-center"
                   href={`/profile/${ans.author.clerkID}`}

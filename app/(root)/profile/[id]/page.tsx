@@ -12,9 +12,12 @@ import ProfileLink from "@/components/shared/ProfileLink";
 import Stats from "@/components/shared/Stats";
 import QueTab from "@/components/shared/QueTab";
 import AnsTab from "@/components/shared/AnsTab";
+import { redirect } from "next/navigation";
 
 const page = async ({ params, searchParams }: URLProps) => {
+  if (!params.id) redirect("/sign-in");
   const { userId } = auth();
+
   const userInfo = await getUserInfo({ userId: params.id });
   return (
     <>
@@ -81,10 +84,16 @@ const page = async ({ params, searchParams }: URLProps) => {
       <div className="mt-10 flex gap-10">
         <Tabs defaultValue="top-posts" className="w-[400px] ">
           <TabsList className="background-light800_dark400 min-h-[42px] p-1">
-            <TabsTrigger className="tab data-[state=active]:bg-primary-500 data-[state=active]:text-primary-100" value="top-posts">
+            <TabsTrigger
+              className="tab data-[state=active]:bg-primary-500 data-[state=active]:text-primary-100"
+              value="top-posts"
+            >
               Top Posts
             </TabsTrigger>
-            <TabsTrigger className="tab data-[state=active]:bg-primary-500 data-[state=active]:text-primary-100" value="answers">
+            <TabsTrigger
+              className="tab data-[state=active]:bg-primary-500 data-[state=active]:text-primary-100"
+              value="answers"
+            >
               Answers
             </TabsTrigger>
           </TabsList>

@@ -5,8 +5,10 @@ import { SignedIn, UserButton } from "@clerk/nextjs";
 import Theme from "./Theme";
 import MobileNav from "./MobileNav";
 import GlobalSearch from "../Search/GlobalSearch";
+import { auth } from "@clerk/nextjs/server";
 
 const Navbar = () => {
+  const { userId } = auth();
   return (
     <nav className="flex fixed justify-between w-full z-50 background-light900_dark200 gap-5 p-6 shadow-light-300 dark:shadow-none">
       <Link href="/" className="flex items-center gap-1">
@@ -15,8 +17,9 @@ const Navbar = () => {
           alt="TinuDiscuss"
           width={35}
           height={35}
+          className="max-xs:hidden"
         />
-        <p className="h2-bold font-spaceGrotesk text-dark-100 dark:text-light-900 max-xs:hidden">
+        <p className="h2-bold font-spaceGrotesk text-dark-100 dark:text-light-900 ">
           Tinu <span className="text-primary-500">Discuss</span>
         </p>
       </Link>
@@ -38,7 +41,7 @@ const Navbar = () => {
             }}
           />
         </SignedIn>
-        <MobileNav />
+        <MobileNav  />
       </div>
     </nav>
   );

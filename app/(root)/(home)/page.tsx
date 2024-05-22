@@ -44,7 +44,7 @@ const Home = async ({ searchParams }: SearchParamsProps) => {
         />
       </div>
       <Homefilters />
-      <div className="mt-10 flex flex-col w-full gap-6">
+      <div className="mt-10 flex flex-col w-full gap">
         {Result.questions.length > 0 ? (
           Result.questions.map((item) => (
             <QuestionCard

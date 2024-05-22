@@ -44,11 +44,11 @@ const QuestionCard = ({
     <div className="card-wrapper p-9 sm:px-11 my-6 rounded-[10px]">
       <div className=" flex flex-col-reverse justify-between items-start gap-5 sm:flex-row">
         <div>
-          <span className="subtle-regular text-dark400_light700 line-clamp-1 flex sm:hidden">
+          <span className="subtle-regular text-dark400_light700 line-clamp-1 mb-2 flex sm:hidden">
             {getTimestamps(createdAt)}
           </span>
           <Link href={`/question/${_id}`}>
-            <h3 className="sm:h3-semibold base-semibold text-dark200_light900 line-clamp-1 flex-1">
+            <h3 className="sm:h3-semibold base-semibold text-dark200_light900 line-clamp-2 flex-1">
               {title}
             </h3>
           </Link>
