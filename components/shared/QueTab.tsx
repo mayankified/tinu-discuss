@@ -15,7 +15,6 @@ const QueTab = async ({ searchParams, userId, clerkId }: Props) => {
     pageSize: 20,
   });
 
-  console.log(result.questions)
   return (
     <>
       {result.questions.map((item) => (

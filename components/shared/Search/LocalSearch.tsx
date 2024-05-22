@@ -42,7 +42,7 @@ const LocalSearch = ({
       }
     }, 300);
     return () => clearTimeout(debounce);
-  }, [Search, router,route, searchParams, query]);
+  }, [Search, router,route, searchParams, query,pathname]);
 
   return (
     <div
